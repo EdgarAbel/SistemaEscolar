@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/Grupos/Create.cshtml" hash="613d6f9c" filehash="fffff10dd7f85ebf" flags="110000" assembly="App_Web_4d2vfnrv" type="ASP._Page_Views_Grupos_Create_cshtml">
+    <filedeps>
+        <filedep name="/Views/Grupos/Create.cshtml" />
+    </filedeps>
+</preserve>

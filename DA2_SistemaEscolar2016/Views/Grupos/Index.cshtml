@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DA2_SistemaEscolar2016.Models.Grupo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Grupos</h2>
+@Html.Partial("../BuscadorFormulario")
+
+<p>
+    @if (User.IsInRole("Admin") ||(User.IsInRole("Capturista")))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreGrupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrera)
+            
+        </th>
+        <th>Cantidad de Alumnos</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreGrupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.carrera)
+        </td>
+        <td>
+            
+            @item.alumnos.Count
+        </td>
+        <td>
+            @if (User.IsInRole("Admin")|| User.IsInRole("Capturista"))
+            {
+                @Html.ActionLink("Editar", "Edit", new { id = item.grupoID })
+                @("|")
+            }
+
+            @if (User.IsInRole("Admin")|| User.IsInRole("Capturista"))
+            {
+                @Html.ActionLink("Lista de Asistencia", "Details", new { id = item.grupoID })
+                @("|")
+            }
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.grupoID })
+        </td>
+    </tr>
+}
+
+</table>
